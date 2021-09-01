@@ -35,5 +35,5 @@ const subscription = async () =>{
     })
     console.log('suscrito'); 
 }
-
-subscription()
+setInterval(subscription, 3000);
+//subscription()
