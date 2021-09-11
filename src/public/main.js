@@ -24,8 +24,6 @@ const subscription = async () =>{
         applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY)
     })
 
-
-
     await fetch('/subscription',{
         method: 'POST',
         body: JSON.stringify(subscription),
@@ -35,5 +33,45 @@ const subscription = async () =>{
     })
     console.log('suscrito'); 
 }
-setInterval(subscription, 3000);
-//subscription()
+
+
+//send nofitication from the front end
+const form = document.getElementById('myform')
+const message = document.getElementById('message')
+form.addEventListener('submit',async (e)=>{
+    e.preventDefault()
+    await fetch('/cocina-message',{
+    method:'POST',
+    body: JSON.stringify({
+        message: message.value
+    }),
+    headers: {
+        'Content-type': 'application/json'
+    }
+    })
+    form.reset()
+})
+
+//send nofitication from the front end
+const pedidoform = document.getElementById('formpedido')
+const pedido = document.getElementById('pedido')
+const iduser = document.getElementById('iduser')
+pedidoform.addEventListener('submit',async (e)=>{
+    e.preventDefault()
+    await fetch('/pedido-message',{
+    method:'POST',
+    body: JSON.stringify({
+        iduser: iduser.value,
+        message: pedido.value
+    }),
+    headers: {
+        'Content-type': 'application/json'
+    }
+    })
+    pedidoform.reset()
+})
+
+
+
+
+subscription()
