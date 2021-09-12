@@ -56,9 +56,9 @@ form.addEventListener('submit',async (e)=>{
 const pedidoform = document.getElementById('formpedido')
 const pedido = document.getElementById('pedido')
 const iduser = document.getElementById('iduser')
-pedidoform.addEventListener('submit',async (e)=>{
+pedidoform.addEventListener('submit',(e)=>{
     e.preventDefault()
-    await fetch('/pedido-message',{
+    fetch('/pedido-message',{
     method:'POST',
     body: JSON.stringify({
         iduser: iduser.value,
