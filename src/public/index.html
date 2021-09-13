@@ -22,25 +22,15 @@
         <input type="text" id="pedido" placeholder="Your message" autofocus>
         <button type="submit">Enviar</button>
     </form>
-     <script>
-       function vibrate() {
-    if (!window) {
-        return;
-    }
-
-    if (!window.navigator) {
-        return;
-    }
-
-    if (!window.navigator.vibrate) {
-        return;
-    }
-
-    window.navigator.vibrate(100);
-
-    </script>
+    	<button id="button">¡Vibrar!</button>
+     
     <script src="/main.js"></script>
+    <script type="text/javascript">
+  const button = document.getElementById('button');
+  button.addEventListener('click', hacerVibrar);
+  function hacerVibrar(){
+    window.navigator.vibrate([1000]);
+  }
+</script>
 </body>
-   
-
 </html>
