@@ -38,9 +38,9 @@ const subscription = async () =>{
 //send nofitication from the front end
 const form = document.getElementById('myform')
 const message = document.getElementById('message')
-form.addEventListener('submit',async (e)=>{
+form.addEventListener('submit',(e)=>{
     e.preventDefault()
-    await fetch('/cocina-message',{
+    fetch('/cocina-message',{
     method:'POST',
     body: JSON.stringify({
         message: message.value
